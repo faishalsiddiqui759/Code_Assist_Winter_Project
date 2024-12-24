@@ -15,3 +15,7 @@ app.get("/",(req,res)=>{
     res.send("response sended");
 });
 
+app.get("/random", ( req, res)=>{
+    res.send("respnse sended");
+});
+
