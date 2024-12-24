@@ -5,7 +5,8 @@ app.listen(8080, ()=>{
     console.log("app.listening on port : 8080");
 });
 
-app.use("/api", (req, res, next)=>{
+// middleware function stored in a variable and can use on any route
+ const checkToken = ("/api", (req, res, next)=>{
    let {token} = req.query;
    if(token === "giveaccess"){
     next();
@@ -14,7 +15,8 @@ app.use("/api", (req, res, next)=>{
    }
 });
 
-app.get("/api",(req,res)=>{
+//middleware function used on this route
+app.get("/api", checkToken,(req,res)=>{
     res.send("data sended");
 });
 
